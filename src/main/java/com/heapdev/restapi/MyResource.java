@@ -1,5 +1,8 @@
 package com.heapdev.restapi;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.inject.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -8,7 +11,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-@Path("{pathParam}/test")
+//@Path("{pathParam}/test")
+@Path("test")
 public class MyResource {
 	
 	/**
@@ -18,14 +22,19 @@ public class MyResource {
 	/**
 	 * For 
 	 */
-	
-	@PathParam("pathParam") private String pathParam;
-	@QueryParam("queryParam") private String queryParam;
+//	
+//	@PathParam("pathParam") private String pathParam;
+//	@QueryParam("queryParam") private String queryParam;
+//	
+//	@GET
+//	@Produces(MediaType.TEXT_PLAIN)
+//	public String test(){
+//		return " PathParam: "+pathParam+ ", queryParam: "+queryParam;
+//	}
 	
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public String test(){
-		return " PathParam: "+pathParam+ ", queryParam: "+queryParam;
+	@Produces("text/shortdate")
+	public Date test(){
+		return Calendar.getInstance().getTime();
 	}
-
 }
